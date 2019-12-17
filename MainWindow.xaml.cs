@@ -325,6 +325,29 @@ namespace WpfApp1
             sr = max;
         }
 
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)                 //задание №8 о нормализации массива
+        {
+            if (myAL != null)
+            {
+                math();
+                lbMain.Items.Add("Мат. ожидание = " + mo);
+                max();
+                lbMain.Items.Add("Максимальное отклонение = " + sr);
+                lbMain.Items.Add("Измененный массив");
+                for (int index = 0; index < myAL.Count; index++)
+                {
+                    double k = (int)myAL[index] - mo;
+
+                    if (k > sr / 2)
+                        lbMain.Items.Add((int)myAL[index] + "->" + ((int)myAL[index] - (k - sr / 2)));
+                    else
+                        lbMain.Items.Add(myAL[index]);
+                }
+                MessageBox.Show("Замена произведена");
+            }
+            else MessageBox.Show("Массив не сформирован");
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             try
