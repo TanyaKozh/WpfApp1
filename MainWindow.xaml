@@ -44,6 +44,7 @@
                 <MenuItem Header="Математическое ожидание" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Отклонение от Мо" Click="MenuItem_Click_2"/>
                 <MenuItem Header="Замена" Click="MenuItem_Click_3"/>
+                <MenuItem Header="Неубывающая последовательность" Click="MenuItem_Click_4"/>
             </MenuItem>
         </Menu>
     </Grid>

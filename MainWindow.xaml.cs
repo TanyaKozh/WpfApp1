@@ -44,6 +44,22 @@ namespace WpfApp1
                 lbMain.Items.Add(number);
             }
         }
+        private void Gen_new(ArrayList myAL, int itemCount, int x, int y)
+        {
+            Random rnd1 = new Random();
+            int number;
+            lbMain.Items.Clear();
+            lbMain.Items.Add("Сгенерированный массив");
+            int s = 0;
+            for (int index = 0; index < itemCount; index++)
+            {
+                number = Math.Abs(rnd1.Next(x, y));
+                myAL.Add(s + number);
+                lbMain.Items.Add(myAL[index]);
+                s = number + s;
+            }
+        }
+
         private void error()
         {
             tBox_countElem.BorderBrush = Brushes.Red;
@@ -323,6 +339,22 @@ namespace WpfApp1
                 if (n > max) max = n;
             }
             sr = max;
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)             //задание №16 о неубывающей последовательности - работает
+        {
+            try
+            {
+                lbMain.Items.Clear();
+                myAL = new ArrayList();
+                int itemCount = Convert.ToInt32(tBox_countElem.Text);
+                Gen_new(myAL, itemCount, A, B);
+                tBox_countElem.BorderBrush = Brushes.Gray;
+            }
+            catch
+            {
+                error();
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
