@@ -298,6 +298,30 @@ namespace WpfApp1
             else MessageBox.Show("Массив не сформирован");
         }
 
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (myAL != null)
+            {
+                int m = 0;
+
+                myAL.Add(myAL[0]);
+                //lbMain.Items.Add(myAL[0]);
+                myAL.Add(myAL[1]);
+                //lbMain.Items.Add(myAL[1]);
+
+                for (int index = 2; index < myAL.Count - 2; index++)
+                {
+                    if (((int)myAL[index - 2] < (int)myAL[index - 1]) && ((int)myAL[index - 1] < (int)myAL[index]) && ((int)myAL[index] < (int)myAL[index + 1]) && ((int)myAL[index + 1] < (int)myAL[index + 2]))
+                        m++;
+                    if (((int)myAL[index - 2] > (int)myAL[index - 1]) && ((int)myAL[index - 1] > (int)myAL[index]) && ((int)myAL[index] > (int)myAL[index + 1]) && ((int)myAL[index + 1] > (int)myAL[index + 2]))
+                        m++;
+                }
+                tBox_countElem.BorderBrush = Brushes.Gray;
+                MessageBox.Show("Колличество элементов массива составляющих упорядоченную последовательность с «соседями» = " + m);
+            }
+            else MessageBox.Show("Массив не сформирован");
+        }
+
         private void Btn_task1_Click(object sender, RoutedEventArgs e)
         {
             try
