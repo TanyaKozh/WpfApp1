@@ -43,6 +43,7 @@
                 <MenuItem Header="Соседи" Click="MenuItem_Click"/>
                 <MenuItem Header="Математическое ожидание" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Отклонение от Мо" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Замена" Click="MenuItem_Click_3"/>
             </MenuItem>
         </Menu>
     </Grid>

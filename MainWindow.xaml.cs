@@ -25,6 +25,7 @@ namespace WpfApp1
     {
         ArrayList myAL;
         int A = -100, B = 100,mo;
+        double sr;
         public MainWindow()
         {
             InitializeComponent();
@@ -290,6 +291,38 @@ namespace WpfApp1
                 }
             }
             else MessageBox.Show("Массив не сформирован");
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)             //задание №7 про замену - работает
+        {
+            if (myAL != null)
+            {
+                math();
+                max();
+                lbMain.Items.Add("Мат. ожидание = " + mo);
+                lbMain.Items.Add("Максимальное отклонение = " + sr);
+                lbMain.Items.Add("Измененный массив");
+                for (int index = 0; index < myAL.Count; index++)
+                {
+                    double k = (int)myAL[index] - mo;
+                    if (k > sr / 2)
+                        lbMain.Items.Add((int)myAL[index] + "->" + mo);
+                    else
+                        lbMain.Items.Add(myAL[index]);
+                }
+                MessageBox.Show("Замена произведена");
+            }
+            else MessageBox.Show("Массив не сформирован");
+        }
+        void max()
+        {
+            double max = Math.Abs((int)myAL[0] - mo);
+            for (int index = 1; index < myAL.Count; index++)
+            {
+                double n = Math.Abs((int)myAL[index] - mo);
+                if (n > max) max = n;
+            }
+            sr = max;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
