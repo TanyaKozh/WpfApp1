@@ -41,6 +41,7 @@
             <MenuItem Header="New" Width="105">
                 <MenuItem Header="Гистограмма" Click="Button_Click"/>
                 <MenuItem Header="Соседи" Click="MenuItem_Click"/>
+                <MenuItem Header="Последовательность" Click="MenuItem_Click_2"/>
             </MenuItem>
         </Menu>
     </Grid>
