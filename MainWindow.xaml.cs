@@ -250,6 +250,32 @@ namespace WpfApp1
             else MessageBox.Show("Массив не сформирован");
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                myAL = new ArrayList();
+                int itemCount = Convert.ToInt32(tBox_countElem.Text);
+                Gen(myAL, itemCount, A, B);
+                int m = 0;
+                myAL.Add(myAL[0]);
+                //lbMain.Items.Add(myAL[0]);
+                myAL.Add(myAL[1]);
+                //lbMain.Items.Add(myAL[1]);
+                for (int index = 1; index < itemCount; index++)
+                {
+                    if (((int)myAL[index - 1] < (int)myAL[index]) && ((int)myAL[index] > (int)myAL[index + 1]))
+                        m++;
+                }
+                tBox_countElem.BorderBrush = Brushes.Gray;
+                MessageBox.Show("Колличество элементов массива больше своих «соседей» = " + Convert.ToString(m), "Результат");
+            }
+            catch
+            {
+                error();
+            }
+        }
+
         private void Btn_task1_Click(object sender, RoutedEventArgs e)
         {
             try
