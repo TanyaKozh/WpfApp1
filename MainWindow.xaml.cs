@@ -277,6 +277,21 @@ namespace WpfApp1
             mo = sum / myAL.Count;
         }
 
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (myAL != null)
+            {
+                math();
+                lbMain.Items.Add("Мат. ожидание = " + mo);
+                lbMain.Items.Add("Измененный массив");
+                for (int index = 0; index < myAL.Count; index++)
+                {
+                    lbMain.Items.Add((int)myAL[index] - mo);
+                }
+            }
+            else MessageBox.Show("Массив не сформирован");
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             try
