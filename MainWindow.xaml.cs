@@ -24,7 +24,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         ArrayList myAL;
-        int A = -100, B = 100;
+        int A = -100, B = 100,mo;
         public MainWindow()
         {
             InitializeComponent();
@@ -248,6 +248,33 @@ namespace WpfApp1
                 form1.Show();
             }
             else MessageBox.Show("Массив не сформирован");
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (myAL != null)
+            {
+                bool p = false;
+                math();
+                int index = 0;
+                while (p == false)
+                {
+                    if ((int)myAL[index] > mo)
+                        p = true;
+                    index++;
+                }
+                MessageBox.Show(index + " = первый элемент больший математического ожидания " + mo);
+            }
+            else MessageBox.Show("Массив не сформирован");
+        }
+        void math()
+        {
+            int sum = 0, index;
+            for (index = 0; index < myAL.Count; index++)
+            {
+                sum += (int)myAL[index];
+            }
+            mo = sum / myAL.Count;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
