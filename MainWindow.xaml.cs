@@ -240,6 +240,16 @@ namespace WpfApp1
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (myAL != null)
+            {
+                Form1 form1 = new Form1(myAL);
+                form1.Show();
+            }
+            else MessageBox.Show("Массив не сформирован");
+        }
+
         private void Btn_task1_Click(object sender, RoutedEventArgs e)
         {
             try

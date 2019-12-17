@@ -37,8 +37,11 @@
             <TextBlock Grid.Column="1"  Text="Результат" Margin="0,20,-0.8,4.6"/>
             <ListBox Grid.Column="1" Grid.Row="0" Margin="5,43,4.2,0" x:Name="lbMain"  Width="auto" MinWidth="305" MinHeight="295" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" Height="394" VerticalAlignment="Top" />
             <CheckBox Content="CheckBox" Grid.Column="1" HorizontalAlignment="Left" Margin="584,15,-272.8,0" VerticalAlignment="Top" Width="100"/>
-            <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="580" Grid.ColumnSpan="2" Margin="0,0,-0.8,0"/>
-
+        <Menu HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="580" Grid.ColumnSpan="2" Margin="0,0,-0.8,0">
+            <MenuItem Header="New" Width="105">
+                <MenuItem Header="Гистограмма" Click="Button_Click"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
 
