@@ -339,7 +339,10 @@ namespace WpfApp1
                     double k = (int)myAL[index] - mo;
 
                     if (k > sr / 2)
+                    {
+                        myAL[index] = (int)myAL[index] - (k - sr / 2);
                         lbMain.Items.Add((int)myAL[index] + "->" + ((int)myAL[index] - (k - sr / 2)));
+                    }
                     else
                         lbMain.Items.Add(myAL[index]);
                 }
@@ -362,7 +365,10 @@ namespace WpfApp1
                     double k = (int)myAL[index] - mo;
 
                     if (k > sr / 2)
+                    {
+                        myAL[index] = (int)myAL[index] - (k - sr / 2);
                         lbMain.Items.Add((int)myAL[index] + "->" + ((int)myAL[index] + (k - sr / 2)));
+                    }
                     else
                         lbMain.Items.Add(myAL[index]);
                 }
