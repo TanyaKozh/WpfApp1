@@ -322,7 +322,10 @@ namespace WpfApp1
                 {
                     double k = (int)myAL[index] - mo;
                     if (k > sr / 2)
+                    {
+                        myAL[index] = mo;
                         lbMain.Items.Add((int)myAL[index] + "->" + mo);
+                    }
                     else
                         lbMain.Items.Add(myAL[index]);
                 }
