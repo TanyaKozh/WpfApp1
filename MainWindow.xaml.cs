@@ -24,7 +24,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         ArrayList myAL;
-        int A = -100, B = 100,mo;
+        int A = -10, B = 10,mo;
         double sr;
         public MainWindow()
         {
@@ -377,46 +377,82 @@ namespace WpfApp1
             else MessageBox.Show("Массив не сформирован");
         }
 
-        private void MenuItem_Click_6(object sender, RoutedEventArgs e)     //ВРОДЕ работает  //задание №10 о многоитерационный алгоритм подавления шумов
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
         {
             if (myAL != null)
             {
-                math();
-                lbMain.Items.Add("Мат. ожидание = " + mo);
-                Window3 window3 = new Window3();
-                window3.Owner = this;
-                window3.ShowDialog();
-                int k, n;
-                k = Convert.ToInt32(window3.textBox1.Text);
-                while (k != 0)
+                int m = 1,iter=0;
+                while (iter < 2)
                 {
-                    Window4 window4 = new Window4();
-                    window4.ShowDialog();
-                    n = Convert.ToInt32(window4.textBox1.Text);
-                    lbMain.Items.Add("величина границы отклонения = " + n);
-                    for (int index = 0; index < myAL.Count; index++)
+                    for (int index = 1; index < myAL.Count-1; index++)
                     {
-                        int p = Math.Abs((int)myAL[index]) - Math.Abs((int)mo);
-                        if (p > n)
+                        if (((int)myAL[index] > (int)myAL[index + 1]) && ((int)myAL[index] > (int)myAL[index - 1]))
                         {
-                            try
-                            {
-                                int c = index + 1;
-                                lbMain.Items.RemoveAt(c);
-                                myAL.RemoveAt(index);
-                                index--;
-                            }
-                            catch { index++; }
+                            myAL[index] = (int)myAL[index] - m;
+                        }
+                        if (((int)myAL[index] < (int)myAL[index + 1]) && ((int)myAL[index] < (int)myAL[index - 1]))
+                        {
+                            myAL[index] = (int)myAL[index] + m;
                         }
                     }
-                    k--;
+                    lbMain.Items.Add("Измененный массив "+(iter+1));
+                    for (int index = 0; index < myAL.Count; index++)
+                    {                       
+                            lbMain.Items.Add(myAL[index]);
+                    }
+                    iter++;
                 }
-                lbMain.Items.Add("Измененный массив");
-                for (int i = 0; i < myAL.Count; i++)
-                    lbMain.Items.Add(myAL[i]);
+
             }
             else MessageBox.Show("Массив не сформирован");
         }
+   
+
+        //private void MenuItem_Click_6(object sender, RoutedEventArgs e)     //ВРОДЕ работает  //задание №10 о многоитерационный алгоритм подавления шумов
+        //{
+        //    if (myAL != null)
+        //    {
+        //        math();
+        //        lbMain.Items.Add("Мат. ожидание = " + mo);
+        //        Window3 window3 = new Window3();
+        //        window3.Owner = this;
+        //        window3.ShowDialog();
+        //        int k, n;
+        //        k = Convert.ToInt32(window3.textBox1.Text);
+        //        while (k != 0)
+        //        {
+        //            Window4 window4 = new Window4();
+        //            window4.ShowDialog();
+        //            n = Convert.ToInt32(window4.textBox1.Text);
+        //            lbMain.Items.Add("величина границы отклонения = " + n);
+        //            for (int index = 0; index < myAL.Count; index++)
+        //            {
+        //                int p = Math.Abs((int)myAL[index]) - Math.Abs((int)mo);
+        //                if (p > n)
+        //                {
+        //                    try
+        //                    {
+        //                        int c = index + 1;
+        //                        lbMain.Items.RemoveAt(c);
+        //                        myAL.RemoveAt(index);
+        //                        index--;
+        //                    }
+        //                    catch { index++; }
+        //                }
+        //            }
+        //            k--;
+        //        }
+        //        lbMain.Items.Add("Измененный массив");
+        //        for (int i = 0; i < myAL.Count; i++)
+        //            lbMain.Items.Add(myAL[i]);
+        //    }
+        //    else MessageBox.Show("Массив не сформирован");
+        //}
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {

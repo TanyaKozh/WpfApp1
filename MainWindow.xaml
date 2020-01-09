@@ -47,6 +47,7 @@
                 <MenuItem Header="Нормализация массива" Click="MenuItem_Click_4"/>
                 <MenuItem Header="Денормализация массива" Click="MenuItem_Click_5"/>
                 <MenuItem Header="Многоитерационный алгоритм" Click="MenuItem_Click_6"/>
+                <MenuItem Header="Экстремум" Click="MenuItem_Click_7"/>
             </MenuItem>
         </Menu>
     </Grid>
